@@ -1,0 +1,23 @@
+[root@test ~]# echo `echo \$SHELL`
+/bin/bash
+[root@test ~]# echo `echo \\$SHELL`
+$SHELL
+[root@test ~]# echo `echo \\\$SHELL`
+$SHELL
+[root@test ~]# echo `echo \\\\$SHELL`
+\/bin/bash
+[root@test ~]# echo `echo \\\\\$SHELL`
+\/bin/bash
+[root@test ~]# echo `echo \\\\\\$SHELL`
+从左到右每两个\配对变成一个\，如果有多出来的一个\，则忽略掉
+
+[root@test ~]# ipaddr=$(ip addr | awk '/inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}')
+[root@test ~]# echo $ipaddr
+192.168.1.150
+[root@test ~]# ipaddr=`ip addr | awk '/inet.*global/ {print gensub(/(.*)\/(.*)/, "\\1", "g", $2)}'`
+[root@test ~]# echo $ipaddr
+ 
+[root@test ~]# ipaddr=`ip addr | awk '/inet.*global/ {print gensub(/(.*)\\/(.*)/, "\\\\1", "g", $2)}'`
+[root@test ~]# echo $ipaddr
+192.168.1.150
+[root@test ~]# 

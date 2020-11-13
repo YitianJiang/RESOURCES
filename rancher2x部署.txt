@@ -1,0 +1,36 @@
+rancher2.x部署
+1.
+注意安装rancher server时加上 --privileged 中文官网没改
+
+2.
+rancher版本选择 v1.18.12
+
+3.
+master
+firewall-cmd --zone=public --permanent --add-port=2379/tcp
+firewall-cmd --zone=public --permanent --add-port=2380/tcp
+firewall-cmd --zone=public --permanent --add-port=2376/tcp
+firewall-cmd --zone=public --permanent --add-port=10250/tcp
+firewall-cmd --zone=public --permanent --add-port=10254/tcp
+firewall-cmd --zone=public --permanent --add-port=9099/tcp
+firewall-cmd --zone=public --permanent --add-port=8472/udp
+firewall-cmd --reload
+
+slave(全是etcd节点)
+firewall-cmd --zone=public --permanent --add-port=2376/tcp 
+firewall-cmd --zone=public --permanent --add-port=10250/tcp
+firewall-cmd --zone=public --permanent --add-port=10254/tcp
+firewall-cmd --zone=public --permanent --add-port=6443/tcp
+firewall-cmd --zone=public --permanent --add-port=9099/tcp
+firewall-cmd --zone=public --permanent --add-port=8472/udp
+firewall-cmd --reload
+
+4.
+swapoff -a
+sed -ri 's/.*swap.*/#&/' /etc/fstab  否则kulet起不来
+
+5.
+用chrony配置时间同步
+https://www.cnblogs.com/jhxxb/p/11526098.html
+
+

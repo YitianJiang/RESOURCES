@@ -1,0 +1,8 @@
+在github上新建仓库，参考 https://blog.csdn.net/qq_41800210/article/details/88804933
+复制的是http地址，结果一直clone不下来  
+报fatal: unable to access 'https://github.com/YitianJiang/mysql-install.git/': TCP connection reset by peer
+参照 https://blog.csdn.net/qq_33349365/article/details/101514412 没有解决
+报 fatal: unable to access 'https://github.com/YitianJiang/mysql-install.git/': Failed connect to 127.0.0.1:1080; Connection refused
+参考 https://segmentfault.com/q/1010000007528965?sort=created 感觉好像是网络问题
+参考 https://www.cnblogs.com/zddwork/p/11652930.html 改clone ssh地址
+clone 成功

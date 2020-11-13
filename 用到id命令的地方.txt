@@ -1,0 +1,1 @@
+chown $(id -u):$(id -g) /root/.kube/config
