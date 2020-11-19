@@ -1,0 +1,7 @@
+sed 中 & 的作用 : 代表前面匹配的内容
+原来的内容：
+/dev/mapper/centos-swap swap                    swap    defaults        0 0
+sed -ri 's/.*swap.*/#&/' /etc/fstab 
+替换后为:
+#/dev/mapper/centos-swap swap                    swap    defaults        0 0
+
