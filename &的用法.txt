@@ -1,0 +1,7 @@
+[root@test ~]# expect --version 2>&1 1>&test1
+[root@test ~]# less test1
+-bash: expect: command not found
+[root@test ~]# expect --version 2>&1 1>test1
+-bash: expect: command not found
+[root@test ~]# less test1
+[root@test ~]# 
