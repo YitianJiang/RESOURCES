@@ -7,4 +7,4 @@ sed -i '/<configuration>/a \
 <property>\
         <name>fs.default.name</name>\
         <value>hdfs://hserver1:9000</value>\
-</property>' test1
+</property>' sedmutipleline
