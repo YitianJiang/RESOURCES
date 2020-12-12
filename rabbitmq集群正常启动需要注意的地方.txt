@@ -1,0 +1,2 @@
+master 需要先启动，待master启动完成后，slaves再启动，slaves的启动没有先后顺序
+如果master、slaves同时启动，或slaves先启动，则会出现只有master上的rabbitmq起来，slaves上的rabbitmq都起不来或者部分slave上的rabbitmq起来
