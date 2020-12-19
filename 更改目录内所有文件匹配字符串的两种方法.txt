@@ -1,0 +1,15 @@
+1.
+findfiles(){
+for file in $(ls $1)
+  do
+    if [[ -d $1"/"$file ]] ;then
+      findfiles $1"/"$file
+    else
+      sed -i 's/192\.168\.1\./10.0.0./g' $1"/"$file
+    fi
+  done
+}
+findfiles /root/system-install-and-config
+
+2.
+sed -i 's/192\.168\.1\./10.0.0./g' $(grep -rl "192\.168\.1\." /root/system-install-and-config)
