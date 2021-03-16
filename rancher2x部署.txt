@@ -3,7 +3,7 @@ rancher2.x部署
 注意安装rancher server时加上 --privileged 中文官网没改
 
 1.2
-rancher版本选择 v1.18.12
+k8s版本选择 v1.18.12
 
 2.1
 master
@@ -24,10 +24,11 @@ firewall-cmd --zone=public --permanent --add-port=10254/tcp
 firewall-cmd --zone=public --permanent --add-port=9099/tcp
 firewall-cmd --zone=public --permanent --add-port=8472/udp
 firewall-cmd --reload
+
 2.2
 swapoff -a
 sed -ri 's/.*swap.*/#&/' /etc/fstab  
-否则kulet起不来
+否则kublet起不来
 
 2.3
 用chrony配置时间同步 以master为准
