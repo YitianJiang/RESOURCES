@@ -1,0 +1,29 @@
+function log2(time) {
+  return new Promise((resolve,reject) => {
+    setTimeout(function(){
+      console.log(time)
+      resolve(time)
+   }, time)
+  }) 
+}
+
+async function fun1() {
+   const a = await log2(5000)
+   const b = await log2(10000)
+   const c = log2(2000)
+   console.log(a)
+   console.log(b)
+   console.log(1)
+   setTimeout(() => {
+    console.log(a,"66666666")
+   },6000)
+}
+
+fun1()
+
+运行结果：
+等待5秒后输出 5000 
+再等待10秒后输出 10000     
+再 立即输出 5000 10000 1
+再过两秒输出2000
+再过四秒输出6000
